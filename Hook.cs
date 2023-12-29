@@ -33,7 +33,7 @@ public unsafe static partial class Hook
     {
         VirtualProtect(addr, nint.Size, 0x40, out int oldProtect);
         *(nint*)(addr) = value;
-        VirtualProtect(addr, nint.Size, 0x40, out int _);
+        VirtualProtect(addr, nint.Size, oldProtect, out int _);
     }
 
     public static void Init()
